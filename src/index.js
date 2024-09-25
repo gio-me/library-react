@@ -11,16 +11,23 @@ import {
   faBolt,
   faBookOpen,
   faTags,
+  faStar,
+  faStarHalfAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars, faShoppingCart, faTimes, faBolt, faBookOpen, faTags);
+library.add(
+  faBars,
+  faShoppingCart,
+  faTimes,
+  faBolt,
+  faBookOpen,
+  faTags,
+  faStar,
+  faStarHalfAlt
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
