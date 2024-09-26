@@ -4,10 +4,18 @@ import Rating from "../components/ui/Rating.jsx";
 import Price from "../components/ui/Price.jsx";
 import Book from "../components/ui/Book.jsx";
 
-function BookInfo({ books }) {
+function BookInfo({ books, addToCart, cart }) {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
-  console.log(book);
+  // console.log(book);
+
+  function addBookToCart(book) {
+    addToCart(book);
+  }
+
+  function bookExistsOnCart() {
+    return cart.find((book) => +book.id === +id);
+  }
 
   return (
     <div id="books__body">
@@ -50,7 +58,15 @@ function BookInfo({ books }) {
                     facere, sint asperiores saepe beatae ratione!
                   </p>
                 </div>
-                <button className="btn">Add to cart</button>
+                {bookExistsOnCart() ? (
+                  <Link to="/cart">
+                    <button className="btn">Checkout</button>
+                  </Link>
+                ) : (
+                  <button className="btn" onClick={() => addBookToCart(book)}>
+                    Add to cart
+                  </button>
+                )}
               </div>
             </div>
           </div>
